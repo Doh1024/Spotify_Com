@@ -5,7 +5,6 @@ import Nav from "./components/Nav"
 const App = () => {
   return (
     <Router>
-      <Nav />
       <Routes>
         <Route path="/" element={<Home />}></Route>
       </Routes>
