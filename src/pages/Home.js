@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react'
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import '../styles/home.css'
 import video from '../assets/spin.mp4'
 
 const Home = () => {
+  const navigate = useNavigate()
   const CLIENT_ID = "11f87af3cad84caaaa71b13450511a8a"
   const REDIRECT_URI = "http://localhost:3000"
   const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
@@ -20,6 +21,7 @@ const Home = () => {
 
       window.location.hash = ""
       window.localStorage.setItem("token", token)
+      navigate("/About")
     }
 
     setToken(token)
@@ -52,9 +54,11 @@ const Home = () => {
         </div>
         <div class="absolute-center">
           <div class="showreels-div">
-            <video class="showreels-video" loop autoplay muted>
-              <source src={video} type="video/mp4" />
-            </video>
+            {!token ? <Link to={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>
+              <video class="showreels-video" loop autoplay muted>
+                <source src={video} type="video/mp4" />
+              </video>
+            </Link> : <button onClick={logout}>Logout</button>}     
                   <img
                     alt="play"
                     class="showreels-btn"
