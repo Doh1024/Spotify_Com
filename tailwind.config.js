@@ -21,11 +21,15 @@ module.exports = {
         'secondary-dm': '#0d201f',
         'accent-dm': '#b6dfb4',
       },
-      brightness:{
-        25: '.25'
+      animation:{
+        marquee: 'marquee 30s linear infinite',
       },
-      backgroundImage: {
-      },
+      keyframes:{
+        marquee:{
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(.1%)' }
+        },
+      }
     },
   },
   plugins: [

@@ -31,6 +31,7 @@ const Home = () => {
     setToken("")
     window.localStorage.removeItem("token")
   }
+
   return (
     <div class = "bg-background">
       <div class='flex items-center justify-center min-h-screen via-gray-300 to-gay-500 bg-gradient-to-br'>
@@ -44,10 +45,10 @@ const Home = () => {
                   to="360 250 250" repeatCount="indefinite" />
               </path>
             </defs>
-            <text class="circle-text text-text" dy="70" textLength="1220">
+            <text class="circle-text animate-marquee  text-text" dy="70" textLength="1200">
               <textPath xlinkHref="#textcircle_top">
-					      Login to view your spotify
-				      </textPath>
+					      Login to view your spotify   
+				      </textPath> 
             </text>
           </svg>
 
